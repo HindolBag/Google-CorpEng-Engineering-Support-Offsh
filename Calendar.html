@@ -13,8 +13,8 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #1a1f3c, #22344f);
-      color: #ffffff;
+      background: #f4f5f7; /* Light gray background for a clean, professional look */
+      color: #333; /* Dark text color for readability */
       min-height: 100vh;
       margin: 0;
       display: flex;
@@ -22,13 +22,13 @@
     }
 
     .navbar {
-      background-color: #141a32;
+      background-color: #000000; /* Black navbar */
     }
 
     .navbar-brand {
       font-weight: 700;
       font-size: 1.25rem;
-      color: #00ffd0;
+      color: #ffffff; /* White text for brand */
       text-transform: uppercase;
     }
 
@@ -40,7 +40,7 @@
     }
 
     .navbar-nav .nav-link:hover {
-      color: #00ffd0;
+      color: #ffd700; /* Gold color on hover */
     }
 
     .container {
@@ -64,57 +64,48 @@
     }
 
     .holiday-list li {
-      background: rgba(68, 50, 104, 0.4);
-      border-radius: 15px;
+      background: #ffffff; /* White background for each holiday card */
+      border-radius: 8px;
       padding: 20px;
-      box-shadow: 0 4px 20px rgba(0, 255, 208, 0.2);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for a polished look */
       width: 260px;
       transition: all 0.3s ease-in-out;
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(0, 255, 208, 0.1);
     }
 
     .holiday-list li:hover {
-      transform: scale(1.03);
-      box-shadow: 0 8px 25px rgba(0, 255, 208, 0.4);
-      background-color: rgba(68, 50, 104, 0.6);
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
     }
 
     .holiday-list li strong {
       font-size: .9rem;
-      color: #00ffd0;
+      color: #000000; /* Black color for the holiday name */
     }
 
     .holiday-list li span {
       display: block;
       font-size: 0.9rem;
-      color: #c2fdf3;
+      color: #777; /* Soft gray for the holiday description */
       margin-top: 0.5rem;
     }
 
     .alert-info {
       font-size: .9rem;
-      background-color: rgba(0, 255, 208, 0.1);
-      color: #00ffd0;
-      border: 1px solid #00ffd0;
+      background-color: #e0f7fa; /* Light cyan background for alerts */
+      color: #000000; /* Black text color */
+      border: 1px solid #000000;
       border-radius: 10px;
       padding: 15px;
       margin-bottom: 2rem;
-      animation: fadeInUp 1s ease;
-    }
-
-    @keyframes fadeInUp {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
     }
 
     .footer-dark {
-      background-color: #141a32;
+      background-color: #000000; /* Black footer */
       color: #ffffff;
       text-align: center;
       padding: 1rem;
       font-size: 0.95rem;
-      border-top: 1px solid #2a2f4a;
+      border-top: 1px solid #333; /* Dark border for footer */
     }
 
     @media (max-width: 768px) {
@@ -133,7 +124,10 @@
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark shadow-sm px-4">
-  <a class="navbar-brand" href="index.html">Google-CorpEng Engineering Support-Offsh</a>
+  <!-- Full brand name for larger screens -->
+  <a class="navbar-brand d-none d-md-block" href="index.html">Google-CorpEng Engineering Support-Offsh</a>
+  <!-- Shortened brand name for mobile screens -->
+  <a class="navbar-brand d-block d-md-none" href="index.html">Google</a>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
     <span class="navbar-toggler-icon"></span>
   </button>
