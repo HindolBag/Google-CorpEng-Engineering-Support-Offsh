@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google-CorpEng Engineering Support-Offsh - Calendar</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #1a1f3c, #22344f);
+      color: #ffffff;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      background-color: #141a32;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #00ffd0;
+      text-transform: uppercase;
+    }
+
+    .navbar-nav .nav-link {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-right: 1rem;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #00ffd0;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: auto;
+      flex-grow: 1;
+      padding-top: 2rem;
+    }
+
+    .main-content {
+      text-align: center;
+    }
+
+    .holiday-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .holiday-list li {
+      background: rgba(68, 50, 104, 0.4);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0, 255, 208, 0.2);
+      width: 260px;
+      transition: all 0.3s ease-in-out;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 255, 208, 0.1);
+    }
+
+    .holiday-list li:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 25px rgba(0, 255, 208, 0.4);
+      background-color: rgba(68, 50, 104, 0.6);
+    }
+
+    .holiday-list li strong {
+      font-size: 1.2rem;
+      color: #00ffd0;
+    }
+
+    .holiday-list li span {
+      display: block;
+      font-size: 0.9rem;
+      color: #c2fdf3;
+      margin-top: 0.5rem;
+    }
+
+    .alert-info {
+      font-size: 1.1rem;
+      background-color: rgba(0, 255, 208, 0.1);
+      color: #00ffd0;
+      border: 1px solid #00ffd0;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    footer {
+      background-color: #141a32;
+      color: #ffffff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+
+    footer a {
+      color: #00ffd0;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .holiday-list li {
+        width: 100%;
+        max-width: 320px;
+      }
+
+      .navbar-brand {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm px-4">
+  <a class="navbar-brand" href="#">Google-CorpEng Engineering Support-Offsh</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="https://hindolbag.github.io/Attendance-App/" target="_blank">Attendance App</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Support Docs</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Team</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+      <li class="nav-item"><a class="nav-link active" href="#calendar-section">Calendar</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<div class="main-content container">
+  <h2 class="mb-4">Upcoming Mandatory Holiday</h2>
+  <div class="alert alert-info" id="upcoming-holiday"></div>
+
+  <h3 class="mb-3">Mandatory Holiday List - Bengaluru, Gurugram, Hyderabad</h3>
+  <ul class="holiday-list" id="holiday-list">
+    <li data-date="2025-01-14" data-name="Pongal / Makar Sankranti" data-region="Bengaluru, Hyderabad"><strong>🎉 Pongal / Makar Sankranti</strong><span>on 14th January 2025 - Regions: Bengaluru, Hyderabad</span></li>
+    <li data-date="2025-03-14" data-name="Holi" data-region="Gurugram"><strong>🎨 Holi</strong><span>on 14th March 2025 - Region: Gurugram</span></li>
+    <li data-date="2025-03-31" data-name="Ramdan / Id-ul-Fitr" data-region="Bengaluru, Gurugram, Hyderabad"><strong>🌙 Ramdan / Id-ul-Fitr</strong><span>on 31st March 2025 - Regions: Bengaluru, Gurugram, Hyderabad</span></li>
+    <li data-date="2025-04-18" data-name="Good Friday" data-region="Gurugram"><strong>✝️ Good Friday</strong><span>on 18th April 2025 - Region: Gurugram</span></li>
+    <li data-date="2025-05-01" data-name="May Day" data-region="Bengaluru, Hyderabad"><strong>👷 May Day</strong><span>on 1st May 2025 - Regions: Bengaluru, Hyderabad</span></li>
+    <li data-date="2025-06-02" data-name="Telangana Formation Day" data-region="Hyderabad"><strong>🏞️ Telangana Formation Day</strong><span>on 2nd June 2025 - Region: Hyderabad</span></li>
+    <li data-date="2025-08-15" data-name="Independence Day" data-region="Bengaluru, Gurugram, Hyderabad"><strong>🇮🇳 Independence Day</strong><span>on 15th August 2025 - Regions: Bengaluru, Gurugram, Hyderabad</span></li>
+    <li data-date="2025-08-27" data-name="Ganesh Chaturthi" data-region="Bengaluru"><strong>🐘 Ganesh Chaturthi</strong><span>on 27th August 2025 - Region: Bengaluru</span></li>
+    <li data-date="2025-10-02" data-name="Gandhi Jayanti / Dasara" data-region="Bengaluru, Gurugram, Hyderabad"><strong>🕊️ Gandhi Jayanti / Dasara</strong><span>on 2nd October 2025 - Regions: Bengaluru, Gurugram, Hyderabad</span></li>
+    <li data-date="2025-10-20" data-name="Deepawali / Kali Puja" data-region="Gurugram, Hyderabad"><strong>🪔 Deepawali / Kali Puja</strong><span>on 20th October 2025 - Regions: Gurugram, Hyderabad</span></li>
+    <li data-date="2025-10-22" data-name="Balipadyami" data-region="Bengaluru"><strong>🌼 Balipadyami</strong><span>on 22nd October 2025 - Region: Bengaluru</span></li>
+    <li data-date="2025-11-05" data-name="Guru Nanak Jayanti" data-region="Gurugram"><strong>🛕 Guru Nanak Jayanti</strong><span>on 5th November 2025 - Region: Gurugram</span></li>
+    <li data-date="2025-12-25" data-name="Christmas" data-region="Bengaluru, Gurugram, Hyderabad"><strong>🎄 Christmas</strong><span>on 25th December 2025 - Regions: Bengaluru, Gurugram, Hyderabad</span></li>
+  </ul>
+</div>
+
+<!-- Footer -->
+<footer>Developed & Maintained by <a href="https://hindolbag.github.io" target="_blank">Hindol Bag</a></footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function getUpcomingHoliday() {
+    const holidays = document.querySelectorAll('.holiday-list li');
+    let upcomingHoliday = null;
+    const today = new Date();
+
+    holidays.forEach(function (holiday) {
+      const holidayDate = new Date(holiday.getAttribute('data-date'));
+      if (holidayDate > today && (!upcomingHoliday || holidayDate < new Date(upcomingHoliday.getAttribute('data-date')))) {
+        upcomingHoliday = holiday;
+      }
+    });
+
+    const upcomingDiv = document.getElementById('upcoming-holiday');
+    if (upcomingHoliday) {
+      const name = upcomingHoliday.getAttribute('data-name');
+      const date = upcomingHoliday.getAttribute('data-date');
+      const region = upcomingHoliday.getAttribute('data-region');
+      upcomingDiv.innerHTML = `<strong>${name}</strong> is on <strong>${date}</strong> for <strong>${region}</strong>`;
+    } else {
+      upcomingDiv.innerHTML = "No upcoming holiday found.";
+    }
+  }
+
+  getUpcomingHoliday();
+</script>
+</body>
+</html>
