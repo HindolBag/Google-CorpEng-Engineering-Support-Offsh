@@ -2,205 +2,214 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>G Attendance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google-CorpEng Engineering Support-Offsh</title>
 
-  <!-- Bootstrap & Font Awesome -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Original Styles Preserved -->
   <style>
     body {
-      background-color: #f8f9fa;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #1a1f3c, #22344f);
+      color: #ffffff;
       min-height: 100vh;
+      margin: 0;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+    }
+
+    .navbar {
+      background-color: #141a32;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #00ffd0;
+      text-transform: uppercase;
+    }
+
+    .navbar-nav .nav-link {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-right: 1rem;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #00ffd0;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: auto;
+      flex-grow: 1;
+      padding-top: 2rem;
+    }
+
+    .main-content {
+      text-align: center;
+    }
+
+    .holiday-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
       justify-content: center;
+      gap: 1.5rem;
     }
 
-    .card-wrapper {
-      width: 100%;
-      max-width: 600px;
+    .holiday-list li {
+      background: rgba(68, 50, 104, 0.4);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0, 255, 208, 0.2);
+      width: 260px;
+      transition: all 0.3s ease-in-out;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 255, 208, 0.1);
     }
 
-    .card {
-      background-color: #ffffff;
-      border: none !important;
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
-      position: relative;
+    .holiday-list li:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 25px rgba(0, 255, 208, 0.4);
+      background-color: rgba(68, 50, 104, 0.6);
     }
 
-    .attendance-heading {
-      font-size: 3.6rem;
+    .holiday-list li strong {
+      font-size: 1.2rem;
+      color: #00ffd0;
+    }
+
+    .holiday-list li span {
+      display: block;
+      font-size: 0.9rem;
+      color: #c2fdf3;
+      margin-top: 0.5rem;
+    }
+
+    .alert-info {
+      font-size: 1.1rem;
+      background-color: rgba(0, 255, 208, 0.1);
+      color: #00ffd0;
+      border: 1px solid #00ffd0;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
 
     footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
+      background-color: #141a32;
+      color: #ffffff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+
+    footer a {
+      color: #00ffd0;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .holiday-list li {
+        width: 100%;
+        max-width: 320px;
+      }
+
+      .navbar-brand {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Main Container -->
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="card-wrapper">
-        <div class="card p-4 text-center">
-          <h1 class="mb-4 attendance-heading">
-            <i class="fa-brands fa-google"></i> Attendance
-          </h1>
-
-          <!-- Attendance Form -->
-          <form id="attendanceForm" autocomplete="on">
-            <div class="mb-3">
-              <select id="name" class="form-select" required>
-                <option value="" disabled selected>Select your LDAP</option>
-                <option value="avbindu">avbindu</option>
-                <option value="avyakth">avyakth</option>
-                <option value="beldaru">beldaru</option>
-                <option value="hindol">hindol</option>
-                <option value="khankulsum">khankulsum</option>
-                <option value="mprabahar">mprabahar</option>
-                <option value="nguite">nguite</option>
-                <option value="rmacwan">rmacwan</option>
-                <option value="vrlakshmi">vrlakshmi</option>
-              </select>
-            </div>
-
-            <div class="mb-3">
-              <select id="status" class="form-select" required>
-                <option value="" disabled selected>Select your status</option>
-                <option value="Present">Present</option>
-                <option value="Absent">Absent</option>
-              </select>
-            </div>
-
-            <button type="submit" class="btn btn-outline-dark w-100 p-1">Submit</button>
-          </form>
-        </div>
-      </div>
-    </div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm px-4">
+  <a class="navbar-brand" href="#">Google-CorpEng Engineering Support-Offsh</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="https://hindolbag.github.io/Attendance-App/" target="_blank">Attendance App</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Support Docs</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Team</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+      <li class="nav-item"><a class="nav-link" href="#calendar-section">Calendar</a></li>
+    </ul>
   </div>
+</nav>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-2">
-    <p class="mb-0">Developed & Maintained by Hindol Bag</p>
-  </footer>
+<!-- Main Content -->
+<div class="main-content container">
+  <h2 class="mb-4">Upcoming Mandatory Holiday</h2>
+  <div class="alert alert-info" id="upcoming-holiday"></div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content border-0">
-        <div class="modal-header">
-          <h5 class="modal-title" id="successModalLabel">Attendance Update</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center" id="modalContent">
-          <!-- Message will be dynamically inserted -->
-        </div>
-      </div>
-    </div>
-  </div>
+  <h3 class="mb-3">Mandatory Holiday List - Bengaluru, Gurugram, Hyderabad</h3>
+  <ul class="holiday-list" id="holiday-list">
+    <li data-date="2025-01-14" data-name="Pongal / Makar Sankranti" data-region="Bengaluru, Hyderabad"><strong>🎉 Pongal / Makar Sankranti</strong><span>on 14th January 2025 - Regions: Bengaluru, Hyderabad</span></li>
+    <li data-date="2025-03-14" data-name="Holi" data-region="Gurugram"><strong>🎨 Holi</strong><span>on 14th March 2025 - Region: Gurugram</span></li>
+    <li data-date="2025-03-31" data-name="Ramdan / Id-ul-Fitr" data-region="Bengaluru, Gurugram, Hyderabad"><strong>🌙 Ramdan / Id-ul-Fitr</strong><span>on 31st March 2025 - Regions: Bengaluru, Gurugram, Hyderabad</span></li>
+    <li data-date="2025-04-18" data-name="Good Friday" data-region="Gurugram"><strong>✝️ Good Friday</strong><span>on 18th April 2025 - Region: Gurugram</span></li>
+    <li data-date="2025-05-01" data-name="May Day" data-region="Bengaluru, Hyderabad"><strong>👷 May Day</strong><span>on 1st May 2025 - Regions: Bengaluru, Hyderabad</span></li>
+    <li data-date="2025-06-02" data-name="Telangana Formation Day" data-region="Hyderabad"><strong>🏞️ Telangana Formation Day</strong><span>on 2nd June 2025 - Region: Hyderabad</span></li>
+    <li data-date="2025-08-15" data-name="Independence Day" data-region="Bengaluru, Gurugram, Hyderabad"><strong>🇮🇳 Independence Day</strong><span>on 15th August 2025 - Regions: Bengaluru, Gurugram, Hyderabad</span></li>
+    <li data-date="2025-08-27" data-name="Ganesh Chaturthi" data-region="Bengaluru"><strong>🐘 Ganesh Chaturthi</strong><span>on 27th August 2025 - Region: Bengaluru</span></li>
+    <li data-date="2025-10-02" data-name="Gandhi Jayanti / Dasara" data-region="Bengaluru, Gurugram, Hyderabad"><strong>🕊️ Gandhi Jayanti / Dasara</strong><span>on 2nd October 2025 - Regions: Bengaluru, Gurugram, Hyderabad</span></li>
+    <li data-date="2025-10-20" data-name="Deepawali / Kali Puja" data-region="Gurugram, Hyderabad"><strong>🪔 Deepawali / Kali Puja</strong><span>on 20th October 2025 - Regions: Gurugram, Hyderabad</span></li>
+    <li data-date="2025-10-22" data-name="Balipadyami" data-region="Bengaluru"><strong>🌼 Balipadyami</strong><span>on 22nd October 2025 - Region: Bengaluru</span></li>
+    <li data-date="2025-11-05" data-name="Guru Nanak Jayanti" data-region="Gurugram"><strong>🛕 Guru Nanak Jayanti</strong><span>on 5th November 2025 - Region: Gurugram</span></li>
+    <li data-date="2025-12-25" data-name="Christmas" data-region="Bengaluru, Gurugram, Hyderabad"><strong>🎄 Christmas</strong><span>on 25th December 2025 - Regions: Bengaluru, Gurugram, Hyderabad</span></li>
+  </ul>
+</div>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.getElementById('attendanceForm').addEventListener('submit', function (e) {
-      e.preventDefault();
+<!-- Footer -->
+<footer>Developed & Maintained by <a href="https://hindolbag.github.io" target="_blank">Hindol Bag</a></footer>
 
-      const today = new Date();
-      const dayOfWeek = today.getDay(); // 0 = Sunday, 6 = Saturday
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function getUpcomingHoliday() {
+    const holidays = document.querySelectorAll('.holiday-list li');
+    let upcomingHoliday = null;
+    const today = new Date();
 
-      // Block attendance submission on weekends
-      if (dayOfWeek === 0 || dayOfWeek === 6) {
-        showModal("❌ Attendance cannot be marked on weekends.", "danger");
-        resetForm();
-        return;
+    holidays.forEach(function (holiday) {
+      const holidayDate = new Date(holiday.getAttribute('data-date'));
+      if (holidayDate > today && (!upcomingHoliday || holidayDate < new Date(upcomingHoliday.getAttribute('data-date')))) {
+        upcomingHoliday = holiday;
       }
-
-      const name = document.getElementById('name').value;
-      const status = document.getElementById('status').value;
-      const submitButton = document.querySelector('button[type="submit"]');
-
-      // Disable form fields while processing the request
-      toggleFormFields(true);
-
-      if (!name || !status) {
-        showModal("❌ Please select both LDAP and status.", "danger");
-        resetForm();
-        return;
-      }
-
-      const data = new FormData();
-      data.append('name', name);
-      data.append('status', status);
-
-      const scriptUrl = 'https://script.google.com/macros/s/AKfycbxl9ZU4egT-1_XajJQ3RII_iDQzpglL4W7_Z9ekdqmBZRUtq7-PpMXXKFFLTYlbd1Jf/exec';
-
-      // Sending attendance data to the Google Apps Script endpoint
-      fetch(scriptUrl, {
-        method: 'POST',
-        body: data,
-      })
-      .then(response => response.text())
-      .then(result => {
-        // Format the date in 'DD Month YYYY' format
-        const formattedDate = today.toLocaleDateString('en-GB', {
-          day: '2-digit',
-          month: 'long',
-          year: 'numeric'
-        });
-
-        const message = result === "Success"
-          ? `<div class="text-success">
-               <strong>Date:</strong> ${formattedDate}<br>
-               <strong>LDAP:</strong> ${name}<br>
-               <strong>Status:</strong> ${status}<br><br>
-               ✔ Attendance marked successfully!
-             </div>`
-          : `<div class="text-danger">
-               <strong>Date:</strong> ${formattedDate}<br>
-               <strong>LDAP:</strong> ${name}<br><br>
-               ❌ ${result}
-             </div>`;
-
-        showModal(message);
-        document.getElementById('attendanceForm').reset();
-      })
-      .catch(() => {
-        // Display error message if there's a network or server issue
-        showModal(`<div class="text-danger">❌ There was a network or server error. Please try again.</div>`);
-      })
-      .finally(() => {
-        // Re-enable form fields after the request completes
-        toggleFormFields(false);
-      });
     });
 
-    // Function to toggle form field states (enabled/disabled)
-    function toggleFormFields(disabled) {
-      document.getElementById('name').disabled = disabled;
-      document.getElementById('status').disabled = disabled;
-      document.querySelector('button[type="submit"]').disabled = disabled;
+    const upcomingDiv = document.getElementById('upcoming-holiday');
+    if (upcomingHoliday) {
+      const name = upcomingHoliday.getAttribute('data-name');
+      const date = upcomingHoliday.getAttribute('data-date');
+      const region = upcomingHoliday.getAttribute('data-region');
+      upcomingDiv.innerHTML = `<strong>${name}</strong> is on <strong>${date}</strong> for <strong>${region}</strong>`;
+    } else {
+      upcomingDiv.innerHTML = "No upcoming holiday found.";
     }
+  }
 
-    // Function to display modal
-    function showModal(messageHtml, type = 'success') {
-      document.getElementById('modalContent').innerHTML = messageHtml;
-      const myModal = new bootstrap.Modal(document.getElementById('successModal'));
-      myModal.show();
-    }
-
-    // Function to reset form and re-enable fields
-    function resetForm() {
-      // Reset the form
-      document.getElementById('attendanceForm').reset();
-      // Re-enable form fields after displaying the modal
-      toggleFormFields(false);
-    }
-  </script>
+  getUpcomingHoliday();
+</script>
 </body>
 </html>
