@@ -189,19 +189,19 @@
   <!-- Upcoming Holiday Script -->
   <script>
     const holidays = [
-      { name: "Pongal / Makar Sankranti", date: "2025-01-14" },
-      { name: "Holi", date: "2025-03-14" },
-      { name: "Ramdan / Id-ul-Fitr", date: "2025-03-31" },
-      { name: "Good Friday", date: "2025-04-18" },
-      { name: "May Day", date: "2025-05-01" },
-      { name: "Telangana Formation Day", date: "2025-06-02" },
-      { name: "Independence Day", date: "2025-08-15" },
-      { name: "Ganesh Chaturthi", date: "2025-08-27" },
-      { name: "Gandhi Jayanti / Dasara", date: "2025-10-02" },
-      { name: "Deepawali / Kali Puja", date: "2025-10-20" },
-      { name: "Balipadyami", date: "2025-10-22" },
-      { name: "Guru Nanak Jayanti", date: "2025-11-05" },
-      { name: "Christmas", date: "2025-12-25" }
+      { name: "Pongal / Makar Sankranti", date: "2025-01-14", region: "Bengaluru, Hyderabad" },
+      { name: "Holi", date: "2025-03-14", region: "Gurugram" },
+      { name: "Ramdan / Id-ul-Fitr", date: "2025-03-31", region: "Bengaluru, Gurugram, Hyderabad" },
+      { name: "Good Friday", date: "2025-04-18", region: "Gurugram" },
+      { name: "May Day", date: "2025-05-01", region: "Bengaluru, Hyderabad" },
+      { name: "Telangana Formation Day", date: "2025-06-02", region: "Hyderabad" },
+      { name: "Independence Day", date: "2025-08-15", region: "Bengaluru, Gurugram, Hyderabad" },
+      { name: "Ganesh Chaturthi", date: "2025-08-27", region: "Bengaluru" },
+      { name: "Gandhi Jayanti / Dasara", date: "2025-10-02", region: "Bengaluru, Gurugram, Hyderabad" },
+      { name: "Deepawali / Kali Puja", date: "2025-10-20", region: "Gurugram, Hyderabad" },
+      { name: "Balipadyami", date: "2025-10-22", region: "Bengaluru" },
+      { name: "Guru Nanak Jayanti", date: "2025-11-05", region: "Gurugram" },
+      { name: "Christmas", date: "2025-12-25", region: "Bengaluru, Gurugram, Hyderabad" }
     ];
 
     function getNextHoliday() {
@@ -209,7 +209,7 @@
       for (let holiday of holidays) {
         const holidayDate = new Date(holiday.date);
         if (holidayDate >= today) {
-          return holiday.name + " on " + holidayDate.toDateString();
+          return `${holiday.name} on ${holidayDate.toDateString()} - Regions: ${holiday.region}`;
         }
       }
       return "No upcoming holidays.";
