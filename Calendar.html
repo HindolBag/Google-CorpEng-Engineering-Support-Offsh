@@ -54,8 +54,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center; /* Center vertically */
       padding: 2rem;
       flex-wrap: wrap;
+      height: 100vh; /* Ensure full height for centering */
     }
 
     .holiday-card {
@@ -120,7 +122,7 @@
       <h4>Upcoming Holiday: <span id="upcoming-holiday-name">Loading...</span></h4>
     </div>
 
-    <h5 class="mb-4">Mandatory Holiday List - Bengaluru, Gurugram, Hyderabad</h5>
+    <h4 class="mb-4 w-100 text-center">Mandatory Holiday List - Bengaluru, Gurugram, Hyderabad</h4>
     <div class="d-flex flex-wrap justify-content-center">
       <div class="holiday-card">
         <h5>🎉 Pongal / Makar Sankranti</h5>
