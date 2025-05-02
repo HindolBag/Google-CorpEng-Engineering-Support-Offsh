@@ -15,45 +15,45 @@
       height: 100%;
       margin: 0;
       overflow: hidden;
+      font-family: Arial, sans-serif;
+      background-color: #121212; /* Dark background for the whole page */
+      color: #f5f5f5; /* Light text color */
     }
 
     body {
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      background-color: #121212;
-      color: #f5f5f5;
+      min-height: 100vh;
     }
 
     /* Navbar Styles */
     .navbar {
-      background-color: #212121;
-      border-bottom: 2px solid #333;
+      background-color: #212121; /* Dark background for navbar */
+      border-bottom: 2px solid #333; /* Subtle border at the bottom */
       padding: 0.5rem 1.5rem;
-      font-family: Arial, sans-serif;
-      font-size: 1rem;
     }
 
     .navbar-brand {
       font-size: 1.5rem;
       font-weight: bold;
-      color: #00bcd4;
+      color: #00bcd4; /* Teal color for the brand */
     }
 
+    /* Navbar Link Styles */
     .navbar-nav .nav-link {
-      color: #bbb;
+      color: #bbb; /* Light grey color for nav links */
       font-size: 1rem;
       margin-right: 1.5rem;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease; /* Smooth transition for hover */
     }
 
     .navbar-nav .nav-link:hover,
     .navbar-nav .nav-link.active {
-      color: #00bcd4;
-      text-shadow: 0 0 10px #00bcd4;
+      color: #00bcd4; /* Hover effect to match the brand color */
+      text-shadow: 0 0 10px #00bcd4; /* Glowing effect on hover */
     }
 
-    /* Main Content */
+    /* Main Content Styles */
     .main-content {
       flex: 1;
       display: flex;
@@ -64,17 +64,18 @@
       z-index: 1;
     }
 
+    /* Card Styling */
     .alt-card {
       position: relative;
-      background: linear-gradient(145deg, rgba(32, 32, 32, 0.9), rgba(0, 188, 212, 0.05));
+      background: linear-gradient(145deg, rgba(32, 32, 32, 0.8), rgba(0, 188, 212, 0.1)); /* Gradient background */
       padding: 3rem;
       text-align: center;
-      box-shadow: 0 0 30px rgba(0, 188, 212, 0.1);
-      backdrop-filter: blur(10px);
-      overflow: hidden;
-      animation: fadeInCard 1.5s ease;
+      box-shadow: 0 0 20px rgba(0, 188, 212, 0.15); /* Soft glowing shadow */
+      backdrop-filter: blur(6px); /* Blur effect for background */
+      animation: fadeInCard 1.5s ease; /* Animation for card appearance */
     }
 
+    /* Card Glow Effect */
     .alt-card::before {
       content: '';
       position: absolute;
@@ -82,26 +83,27 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle at center, rgba(0, 188, 212, 0.4), transparent 70%);
-      animation: rotateGlow 10s linear infinite;
+      background: radial-gradient(circle, rgba(0, 188, 212, 0.3), transparent 60%); /* Radial glow effect */
+      animation: glowPulse 10s ease-in-out infinite; /* Continuous glow pulse animation */
       z-index: 0;
     }
 
+    /* Card Text Styling */
     .alt-card h3 {
       position: relative;
       font-size: 2.5rem;
       font-weight: bold;
-      color: #ffffff;
+      color: #ffffff; /* White text color */
       letter-spacing: 2px;
       z-index: 1;
-      animation: slideUp 1s ease forwards;
+      animation: slideUp 1s ease forwards; /* Text animation */
       opacity: 0;
     }
 
     /* Keyframe Animations */
-    @keyframes rotateGlow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    @keyframes glowPulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.1); opacity: 1; }
     }
 
     @keyframes slideUp {
@@ -116,13 +118,12 @@
 
     /* Footer Styles */
     .footer {
-      background-color: #212121;
-      color: #bbb;
+      background-color: #212121; /* Dark footer background */
+      color: #bbb; /* Light grey text */
       text-align: center;
       padding: 1rem;
       font-size: 1rem;
-      border-top: 2px solid #333;
-      font-family: Arial, sans-serif;
+      border-top: 2px solid #333; /* Subtle border on top */
       position: fixed;
       bottom: 0;
       left: 0;
@@ -142,12 +143,12 @@
 </head>
 
 <body>
-  <!-- Particle Background -->
+  <!-- Particle Background (JS will populate particles here) -->
   <div id="particles-js"></div>
 
-  <!-- Navbar -->
+  <!-- Navbar (Top Navigation) -->
   <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="#">Google</a>
+    <a class="navbar-brand" href="index.html">Google</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -162,32 +163,34 @@
     </div>
   </nav>
 
-  <!-- Main Content -->
+  <!-- Main Content Section -->
   <div class="main-content">
     <div class="alt-card">
       <h3>Welcome to Google-CorpEng Engineering Support - Offshore</h3>
     </div>
   </div>
 
-  <!-- Footer -->
+  <!-- Footer Section (Fixed at the bottom) -->
   <footer class="footer">
     <a>Developed & Maintained by Hindol Bag</a>
   </footer>
 
-  <!-- Bootstrap JS and Particle.js -->
+  <!-- Bootstrap JS (For mobile responsiveness and interactivity) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Particle.js for background particle effect -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
-  <!-- Particle.js Initialization -->
+  <!-- Initialize Particle.js -->
   <script>
     particlesJS("particles-js", {
       particles: {
         number: { value: 80, density: { enable: true, value_area: 800 } },
-        color: { value: "#00bcd4" },
+        color: { value: "#00bcd4" }, /* Particle color */
         shape: { type: "circle", stroke: { width: 0, color: "#fff" } },
         opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0, sync: false } },
-        size: { value: 10, random: true, anim: { enable: false } },
-        move: { enable: true, speed: 15, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
+        size: { value: 10, random: true }, /* Particle size */
+        move: { enable: true, speed: 15, direction: "none", random: true, out_mode: "out" }
       },
       interactivity: {
         events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
