@@ -91,13 +91,13 @@
       background-color: #2c2c2c;
       border-radius: 10px;
       margin: 1rem;
-      padding: 1.5rem;
+      padding: 1rem;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
       width: 100%;
-      max-width: 250px;
+      max-width: 350px;
       opacity: 0;
       animation: fadeIn 1s ease-in-out forwards;
-      font-size: 1rem;
+      font-size: 1.2rem;
       text-align: center;
     }
 
@@ -179,7 +179,6 @@
       const day = date.getDate();
       const month = months[date.getMonth()];
       const year = date.getFullYear();
-
       const suffix = (day === 1 || day === 21 || day === 31) ? 'st' : (day === 2 || day === 22) ? 'nd' : (day === 3 || day === 23) ? 'rd' : 'th';
 
       return `${day}${suffix} ${month} ${year}`;
@@ -215,7 +214,6 @@
       const holidayDate = document.getElementById("upcoming-holiday-date");
       const holidayRegion = document.getElementById("upcoming-holiday-region");
 
-      // Display details of the upcoming holiday
       if (nextHoliday) {
         holidayName.textContent = nextHoliday.name;
         holidayDate.textContent = formatDate(nextHoliday.date);
@@ -229,7 +227,6 @@
     function generateHolidayCards() {
       const holidayCardsContainer = document.getElementById("holiday-cards-container");
 
-      // Generate all holiday cards in one go to minimize DOM manipulations
       const cardHTML = holidays.map(holiday => `
         <div class="holiday-card">
           <h5>🎉 ${holiday.name}</h5>
