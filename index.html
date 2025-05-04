@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Google-CorpEng Engineering Support - Offshore</title>
 
-  <!-- Bootstrap CSS (Minified) -->
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <style>
@@ -14,10 +14,9 @@
     html, body {
       height: 100%;
       margin: 0;
-      overflow: hidden;
       font-family: Arial, sans-serif;
-      background-color: #121212; /* Dark background for the whole page */
-      color: #f5f5f5; /* Light text color */
+      background-color: #121212;
+      color: #f5f5f5;
     }
 
     body {
@@ -28,128 +27,90 @@
 
     /* Navbar Styles */
     .navbar {
-      background-color: #212121; /* Dark background for navbar */
-      border-bottom: 2px solid #333; /* Subtle border at the bottom */
-      padding: 0.5rem 1.5rem;
+      background-color: #212121;
+      border-bottom: 2px solid #333;
+      padding: 0.8rem 1.5rem;
     }
 
     .navbar-brand {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       font-weight: bold;
-      color: #00bcd4; /* Teal color for the brand */
+      color: #00bcd4;
     }
 
-    /* Navbar Link Styles */
     .navbar-nav .nav-link {
-      color: #bbb; /* Light grey color for nav links */
-      font-size: 1rem;
+      color: #bbb;
+      font-size: 1.1rem;
       margin-right: 1.5rem;
-      transition: color 0.3s ease; /* Smooth transition for hover */
+      transition: color 0.3s ease;
     }
 
     .navbar-nav .nav-link:hover,
     .navbar-nav .nav-link.active {
-      color: #00bcd4; /* Hover effect to match the brand color */
-      text-shadow: 0 0 10px #00bcd4; /* Glowing effect on hover */
+      color: #00bcd4;
+      text-shadow: 0 0 10px #00bcd4;
     }
 
-    /* Main Content Styles */
+    /* Main Content */
     .main-content {
       flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 2rem;
-      position: relative;
-      z-index: 1;
     }
 
-    /* Card Styling */
-    .alt-card {
-      position: relative;
-      background: linear-gradient(145deg, rgba(32, 32, 32, 0.8), rgba(0, 188, 212, 0.1)); /* Gradient background */
-      padding: 3rem;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(0, 188, 212, 0.15); /* Soft glowing shadow */
-      backdrop-filter: blur(6px); /* Blur effect for background */
-      animation: fadeInCard 1.5s ease; /* Animation for card appearance */
-    }
-
-    /* Card Glow Effect */
-    .alt-card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(0, 188, 212, 0.3), transparent 60%); /* Radial glow effect */
-      animation: glowPulse 10s ease-in-out infinite; /* Continuous glow pulse animation */
-      z-index: 0;
-    }
-
-    /* Card Text Styling */
-    .alt-card h3 {
-      position: relative;
+    h3 {
       font-size: 2.5rem;
-      font-weight: bold;
-      color: #ffffff; /* White text color */
-      letter-spacing: 2px;
-      z-index: 1;
-      animation: slideUp 1s ease forwards; /* Text animation */
-      opacity: 0;
-    }
-
-    /* Keyframe Animations */
-    @keyframes glowPulse {
-      0%, 100% { transform: scale(1); opacity: 0.5; }
-      50% { transform: scale(1.1); opacity: 1; }
-    }
-
-    @keyframes slideUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInCard {
-      0% { transform: scale(0.95); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
+      text-align: center;
     }
 
     /* Footer Styles */
     .footer {
-      background-color: #212121; /* Dark footer background */
-      color: #bbb; /* Light grey text */
+      background-color: #212121;
+      color: #bbb;
       text-align: center;
       padding: 1rem;
       font-size: 1rem;
-      border-top: 2px solid #333; /* Subtle border on top */
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
+      border-top: 2px solid #333;
     }
 
-    /* Particles Container */
-    #particles-js {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 0;
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+
+      .navbar-nav .nav-link {
+        font-size: 1rem;
+      }
+
+      h3 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .navbar-brand {
+        font-size: 1.2rem;
+      }
+
+      .navbar-nav .nav-link {
+        font-size: 0.9rem;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 
 <body>
-  <!-- Particle Background (JS will populate particles here) -->
-  <div id="particles-js"></div>
-
-  <!-- Navbar (Top Navigation) -->
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="index.html">Google</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -163,42 +124,18 @@
     </div>
   </nav>
 
-  <!-- Main Content Section -->
+  <!-- Main Content -->
   <div class="main-content">
-    <div class="alt-card">
-      <h3>Welcome to Google-CorpEng Engineering Support - Offshore</h3>
-    </div>
+    <h3>Welcome to Google-CorpEng Engineering Support - Offshore</h3>
   </div>
 
-  <!-- Footer Section (Fixed at the bottom) -->
+  <!-- Footer -->
   <footer class="footer">
-    <a>Developed & Maintained by Hindol Bag</a>
+    <span>Developed & Maintained by Hindol Bag</span>
   </footer>
 
-  <!-- Bootstrap JS (For mobile responsiveness and interactivity) -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Particle.js for background particle effect -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
-  <!-- Initialize Particle.js -->
-  <script>
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
-        color: { value: "#00bcd4" }, /* Particle color */
-        shape: { type: "circle", stroke: { width: 0, color: "#fff" } },
-        opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0, sync: false } },
-        size: { value: 10, random: true }, /* Particle size */
-        move: { enable: true, speed: 15, direction: "none", random: true, out_mode: "out" }
-      },
-      interactivity: {
-        events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
-        modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
-      },
-      retina_detect: true
-    });
-  </script>
 </body>
 
 </html>
